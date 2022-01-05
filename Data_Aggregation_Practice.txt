@@ -1,0 +1,120 @@
+
+## View tables
+
+SELECT * 
+FROM employees;
+
+SELECT * 
+FROM departments 
+
+SELECT * 
+FROM dept_emp;
+
+SELECT * 
+FROM salaries;
+
+##How many employees are there ?  
+
+SELECT COUNT(emp_no) AS Num_of_employees
+FROM employees;
+
+##List the employees without a first name
+
+SELECT
+FROM employees
+WHERE first_name IS NULL;
+
+
+##How many records in the salaries table ?
+
+SELECT COUNT(salary) AS salary_count
+FROM salaries
+
+
+##How many equal or higher than 100k ?
+
+SELECT COUNT(*)
+FROM salaries
+WHERE salary >= 100000
+
+
+## How many different names are there ?
+
+SELECT COUNT (DISTINCT first_name)
+FROM employees;
+
+## How many different names ordered by first name in desc order ?
+
+SELECT first_name COUNT (first_name)
+FROM employees
+ORDER BY first_name
+GROUP BY first name DESC
+
+
+## List of employees hired on and after January 1st, 2000
+
+SELECT *
+FROM
+WHERE hire_date >= '2000-01-01';
+
+
+## List of employee numbers and AVG salary, returned salary should be more than 120k
+
+SELECT emp_no, AVG(salary) AS average_salary
+FROM salaries;
+GROUP BY emp_no
+HAVING AVG(salary) >120000
+ORDER BY emp_no
+
+## Extract a list of all names encountered less than 200 times. let data refer to the people hired after January 1st, 1999
+
+SELECT emp_no, first_name, hire_date, COUNT(first_name) AS names_count
+FROM employees
+WHERE hire_date > '1999-01-01'
+GROUP BY emp_no
+HAVING COUNT (first_name) < 200
+ORDER BY first name
+
+
+## Retrieve the total amount the company has paid in salary
+
+SELECT SUM(salary) AS total_salary
+FROM salaries;
+
+##What is the highest salary paid by company ?
+
+SELECT MAX(salary) AS highest_salary
+FROM salaries;
+
+
+## What is the lowest employee number in the database ?
+
+SELECT MIN(emp_no) AS lowest_employee_no
+FROM employees;
+
+
+## What is the average salary after January 1st 1997 ?
+
+SELECT AVG(salary) AS average_salary
+FROM salaries
+WHERE from_date > '1997-01-01'
+
+
+## Round the average salary to the nearest whole number 
+
+SELECT ROUND(AVG(salary)) AS average_salary
+FROM salaries
+
+## Round the average salary to a precision of cents
+
+SELECT ROUND(AVG(salary), 2) AS average_salary
+FROM salaries
+
+##Find the range of the salary
+
+SELECT ROUND(MAX(salary)-MIN(salary), 2) AS salary_range
+FROM salaries;
+
+
+
+
